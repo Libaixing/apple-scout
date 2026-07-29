@@ -18,12 +18,12 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: pip install -r requirements.txt
-      - name: Run Apple Parser
-        run: python collectors/apple/parser.py
-      - name: Commit results
+      - name: Run iPhone Probe
+        run: python survey/probe_apple_refurb.py
+      - name: Commit samples and results
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add collectors/apple/output/ survey/results.csv
-          git diff --staged --quiet || git commit -m "Parser: update results [skip ci]"
+          git add survey/samples/ survey/results.csv
+          git diff --staged --quiet || git commit -m "Survey: update samples and results [skip ci]"
           git push
