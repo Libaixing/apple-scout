@@ -20,6 +20,10 @@ def probe(name: str, url: str, params=None, headers=None, timeout=15):
     print(f"Probe: {name}")
     print("=" * 60)
     print(f"URL: {url}")
+    print(f"Size        : {size} bytes")
+print(f"Elapsed     : {elapsed:.2f}s")
+print(f"Final URL   : {resp.url}")
+print(f"History     : {len(resp.history)} redirects")
 
     try:
         resp = requests.get(url, params=params, headers=default_headers, timeout=timeout)
